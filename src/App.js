@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
 
-// --- DATA SECTION: Update your Resume content here ---
+// --- DATA SECTION: Update Resume content here ---
 const RESUME_DATA = {
   header: {
     name: "Eric.Zhou",
@@ -15,37 +15,38 @@ const RESUME_DATA = {
     }
   },
   skills: {
-    languages: ["Java", "Python", "C", "JavaScript", "SQL", "Lua"],
-    frameworks: ["React", "Next.js", "Node.js", "Vue.js", "Git", "Linux Shell"]
+    languages: ["Java", "Python", "JavaScript", "SQL", "C", "Lua", "Bash"],
+    frameworks: ["React", "Node.js", "Express", "Next.js", "Socket.io", "MongoDB", "FastAPI", "Tailwind"]
   },
   experience: {
     role: "TeachingAssistant",
     course: "CISC 203: Discrete Mathematics",
     period: "Sep 2025 - Present",
     tasks: [
-      "students.mark(200+); // Marked tests & delivered detailed feedback",
-      "system.troubleshoot(); // Developed guides, reducing queries by 15%",
-      "return \"High Student Engagement\";"
+      "assignments.grade(200+); // Provided detailed feedback to reinforce core concepts",
+      "exams.proctor(10+); // Ensure academic integrity & provide real-time clarification",
+      "students.mentor(); // Facilitated office hours to explain abstract proofs",
+      "return \"Reduced student queries by 15% via troubleshooting guides\";"
     ]
   },
   projects: [
     {
+      title: "Real-Time Chat Application",
+      date: "Nov 2025",
+      desc: "Full-duplex messaging app supporting multiple concurrent users. Implemented persistent data layer with MongoDB and live presence tracking.",
+      tags: ["Socket.io", "Node.js", "MongoDB", "React"]
+    },
+    {
+      title: "MoodMix AI",
+      date: "Oct 2025",
+      desc: "Generative AI app converting natural language prompts into Spotify playlists. Integrated OAuth 2.0 and GPT-4 for semantic analysis.",
+      tags: ["FastAPI", "Python", "OpenAI", "OAuth 2.0"]
+    },
+    {
       title: "Flight Search System",
-      date: "Jul 2025",
-      desc: "End-to-End application using Vue.js and TDesign. Optimized load times by 25% via backend API integration.",
-      tags: ["Vue Router", "Rest API"]
-    },
-    {
-      title: "Gym Workout Finder",
-      date: "Mar 2025",
-      desc: "Targeted muscle group filtering using React & TypeScript. Achieved 95% uptime.",
-      tags: ["TypeScript", "CSS3"]
-    },
-    {
-      title: "Spotify Playlist Tool",
       date: "Dec 2024",
-      desc: "Python GUI automation. Reduced data fetch latency by 15% using efficient JSON parsing.",
-      tags: ["Python", "OAuth 2.0"]
+      desc: "Responsive search engine with seamless page transitions. Optimized load times by 25% via backend REST API integration.",
+      tags: ["Vue.js", "TDesign", "REST API"]
     }
   ]
 };
