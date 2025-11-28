@@ -1,13 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './App.css';
-
-// --- DATA SECTION: Update Resume content here ---
+import repoPrepperGif from './repo-prepper.gif'; 
+import travelGif from './travel.gif'; 
+import chatGif from './chat.gif';
+// --- DATA SECTION: Updated from 'resume.pdf' ---
 const RESUME_DATA = {
   header: {
     name: "Eric.Zhou",
-    id: "QU-2026-FC",
+    id: "QU-2026-CS", // Changed to CS as discussed previously
     title: "HELLO WORLD, I AM ERIC ZHOU",
-    subtitle: "Computing Student @ Queen's U | Full Stack Developer | Algorithms",
+    subtitle: "Full Stack Developer | AI Integration Specialist",
     links: {
       github: "https://github.com/Violet0725",
       linkedin: "https://www.linkedin.com/in/ericzhou040725",
@@ -15,38 +17,44 @@ const RESUME_DATA = {
     }
   },
   skills: {
-    languages: ["Java", "Python", "JavaScript", "SQL", "C", "Lua", "Bash"],
-    frameworks: ["React", "Node.js", "Express", "Next.js", "Socket.io", "MongoDB", "FastAPI", "Tailwind"]
+    languages: ["JavaScript (ES6+)", "TypeScript", "Python", "Java", "SQL", "Bash", "Lua"],
+    frameworks: ["Next.js 15", "React", "Node.js", "FastAPI", "Socket.io", "Tailwind CSS", "Redis", "Docker"]
   },
   experience: {
     role: "TeachingAssistant",
     course: "CISC 203: Discrete Mathematics",
     period: "Sep 2025 - Present",
     tasks: [
-      "assignments.grade(200+); // Provided detailed feedback to reinforce core concepts",
-      "exams.proctor(10+); // Ensure academic integrity & provide real-time clarification",
-      "students.mentor(); // Facilitated office hours to explain abstract proofs",
-      "return \"Reduced student queries by 15% via troubleshooting guides\";"
+      "students.mentor(200+); // Breaking down abstract proofs into logical steps",
+      "analysis.run('root-cause'); // Identified edge cases to reinforce algorithmic correctness",
+      "docs.create('Common Errors'); // Reduced repetitive clarification tickets by 15%",
+      "return \"Mirrored technical documentation practices for complex systems\";"
     ]
   },
   projects: [
     {
-      title: "Real-Time Chat Application",
+      title: "Repo Interview Prepper AI",
       date: "Nov 2025",
-      desc: "Full-duplex messaging app supporting multiple concurrent users. Implemented persistent data layer with MongoDB and live presence tracking.",
-      tags: ["Socket.io", "Node.js", "MongoDB", "React"]
+      
+      demo: repoPrepperGif,
+      desc: "Technical interview simulator that scans GitHub repos...",
+      tags: ["React", "Vercel BFF", "OpenAI API", "GitHub API"]
     },
     {
-      title: "MoodMix AI",
+      title: "Travel Debate AI",
+      date: "Nov 2025",
+      
+      demo: travelGif, 
+      desc: "Multi-agent orchestration engine where GPT-4 personas debate...",
+      tags: ["Next.js 15", "OpenAI API", "Redis", "Multi-Agent"]
+    },
+    {
+      title: "Real-Time Chat App",
       date: "Oct 2025",
-      desc: "Generative AI app converting natural language prompts into Spotify playlists. Integrated OAuth 2.0 and GPT-4 for semantic analysis.",
-      tags: ["FastAPI", "Python", "OpenAI", "OAuth 2.0"]
-    },
-    {
-      title: "Flight Search System",
-      date: "Dec 2024",
-      desc: "Responsive search engine with seamless page transitions. Optimized load times by 25% via backend REST API integration.",
-      tags: ["Vue.js", "TDesign", "REST API"]
+      
+      demo: chatGif,
+      desc: "Low-latency distributed messaging system...",
+      tags: ["Socket.io", "Node.js", "MongoDB", "React"]
     }
   ]
 };
@@ -217,43 +225,85 @@ const ExperienceTerminal = ({ exp }) => (
   </section>
 );
 
-const ProjectCard = ({ project }) => (
-  <div className="project-card">
-    <h3>{project.title}</h3>
-    <span className="project-date">Status: Completed [{project.date}]</span>
-    <p className="project-desc">{project.desc}</p>
-    <div className="tags-wrapper">
-      {project.tags.map(tag => <span key={tag} className="skill-tag small">{tag}</span>)}
+const ProjectCard = ({ project, index }) => (
+  // Add 'reversed' class if index is odd (1, 3, 5...)
+  <div className={`project-card ${index % 2 === 1 ? 'reversed' : ''}`}>
+    
+    {/* Media Section */}
+    {project.demo && (
+      <div className="project-media">
+        <img src={project.demo} alt={`${project.title} Demo`} />
+        <div className="media-overlay"></div>
+      </div>
+    )}
+    
+    {/* Content Section */}
+    <div className="project-content">
+      <h3>{project.title}</h3>
+      <span className="project-date">Status: Completed [{project.date}]</span>
+      <p className="project-desc">{project.desc}</p>
+      <div className="tags-wrapper">
+        {project.tags.map(tag => <span key={tag} className="skill-tag small">{tag}</span>)}
+      </div>
     </div>
   </div>
 );
-
 const ProjectsSection = ({ projects }) => (
   <section id="projects">
     <h2 className="section-title">03. DEPLOYED_MODULES</h2>
     <div className="projects-grid">
-      {projects.map((proj, index) => <ProjectCard key={index} project={proj} />)}
+      {/* Pass the index to the component */}
+      {projects.map((proj, index) => (
+        <ProjectCard key={index} project={proj} index={index} />
+      ))}
     </div>
   </section>
 );
 
-const Footer = ({ links }) => (
-  <footer className="contact-section">
-    <h2 className="contact-title">INITIATE_COMMUNICATION()</h2>
-    <p className="location-text">Located in Kingston, Ontario, Canada</p>
-    
-    <a href={links.email} className="btn-tech">Send Email</a>
+// src/App.js
 
-    <div className="social-links">
-      <a href={links.github} target="_blank" rel="noreferrer">github.com/Violet0725</a>
-      <a href={links.linkedin} target="_blank" rel="noreferrer">linkedin.com/in/ericzhou040725</a>
-    </div>
+// src/App.js
+
+const Footer = ({ links }) => {
+  const [copySuccess, setCopySuccess] = React.useState('');
+
+  const handleCopy = (e) => {
+    e.preventDefault(); // Prevent default mailto behavior
+    navigator.clipboard.writeText(links.email.replace('mailto:', ''));
+    setCopySuccess('Email Copied!');
     
-    <div className="footer-meta">
-      System Status: Normal | GPA: 4.1/4.3 | © 2026 Eric Zhou
-    </div>
-  </footer>
-);
+    // Reset message after 2 seconds
+    setTimeout(() => setCopySuccess(''), 2000);
+  };
+
+  return (
+    <footer className="contact-section">
+      <h2 className="contact-title">INITIATE_COMMUNICATION()</h2>
+      <p className="location-text">Located in Kingston, Ontario, Canada</p>
+      
+      <button 
+        onClick={handleCopy} 
+        className="btn-tech" 
+        style={{ cursor: 'pointer', minWidth: '150px' }}
+      >
+        {copySuccess ? copySuccess : 'COPY EMAIL'}
+      </button>
+
+      <div className="social-links">
+        <a href={links.github} target="_blank" rel="noreferrer">
+          github.com/Violet0725
+        </a>
+        <a href={links.linkedin} target="_blank" rel="noreferrer">
+          linkedin.com/in/ericzhou040725
+        </a>
+      </div>
+      
+      <div className="footer-meta">
+        System Status: Normal | GPA: 4.1/4.3 | © 2026 Eric Zhou
+      </div>
+    </footer>
+  );
+};
 
 function App() {
   return (
