@@ -7,7 +7,7 @@ import chatGif from './chat.gif';
 const RESUME_DATA = {
   header: {
     name: "Eric.Zhou",
-    id: "QU-2026-CS", // Changed to CS as discussed previously
+    id: "QU-2026-CS",
     title: "HELLO WORLD, I AM ERIC ZHOU",
     subtitle: "Full Stack Developer | AI Integration Specialist",
     links: {
@@ -35,124 +35,29 @@ const RESUME_DATA = {
     {
       title: "Repo Interview Prepper AI",
       date: "Nov 2025",
-      
-      demo: repoPrepperGif,
-      desc: "Technical interview simulator that scans GitHub repos...",
+      // Using process.env.PUBLIC_URL ensures links work on GitHub Pages
+      demo: repoPrepperGif, 
+      desc: "Technical interview simulator that scans GitHub repos to generate context-aware questions. Architected secure BFF pattern and implemented model cascading for 40% faster generation.",
       tags: ["React", "Vercel BFF", "OpenAI API", "GitHub API"]
     },
     {
       title: "Travel Debate AI",
       date: "Nov 2025",
-      
       demo: travelGif, 
-      desc: "Multi-agent orchestration engine where GPT-4 personas debate...",
+      desc: "Multi-agent orchestration engine where GPT-4 personas (Budget, Luxury, Mediator) debate to generate itineraries. Features real-time visualization and Redis persistence.",
       tags: ["Next.js 15", "OpenAI API", "Redis", "Multi-Agent"]
     },
     {
       title: "Real-Time Chat App",
       date: "Oct 2025",
-      
       demo: chatGif,
-      desc: "Low-latency distributed messaging system...",
+      desc: "Low-latency distributed messaging system handling concurrent bidirectional streams. Optimized React state for sub-100ms delivery.",
       tags: ["Socket.io", "Node.js", "MongoDB", "React"]
     }
   ]
 };
 
 // --- COMPONENTS ---
-
-const ParticleBackground = () => {
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
-    let particlesArray = [];
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      init();
-    };
-
-    class Particle {
-      constructor(x, y, directionX, directionY, size, color) {
-        this.x = x;
-        this.y = y;
-        this.directionX = directionX;
-        this.directionY = directionY;
-        this.size = size;
-        this.color = color;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = '#00f3ff';
-        ctx.fill();
-      }
-      update() {
-        if (this.x > canvas.width || this.x < 0) this.directionX = -this.directionX;
-        if (this.y > canvas.height || this.y < 0) this.directionY = -this.directionY;
-        this.x += this.directionX;
-        this.y += this.directionY;
-        this.draw();
-      }
-    }
-
-    const init = () => {
-      particlesArray = [];
-      let numberOfParticles = (canvas.height * canvas.width) / 9000;
-      for (let i = 0; i < numberOfParticles; i++) {
-        let size = (Math.random() * 2) + 1;
-        let x = (Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2);
-        let y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
-        let directionX = (Math.random() * 0.4) - 0.2;
-        let directionY = (Math.random() * 0.4) - 0.2;
-        particlesArray.push(new Particle(x, y, directionX, directionY, size, '#00f3ff'));
-      }
-    };
-
-    const connect = () => {
-      let opacityValue = 1;
-      for (let a = 0; a < particlesArray.length; a++) {
-        for (let b = a; b < particlesArray.length; b++) {
-          let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
-            + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-          if (distance < (canvas.width / 7) * (canvas.height / 7)) {
-            opacityValue = 1 - (distance / 20000);
-            ctx.strokeStyle = 'rgba(0, 243, 255,' + opacityValue + ')';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-            ctx.stroke();
-          }
-        }
-      }
-    };
-
-    const animate = () => {
-      animationFrameId = requestAnimationFrame(animate);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-      }
-      connect();
-    };
-
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, []);
-
-  return <canvas ref={canvasRef} id="canvas-bg" />;
-};
 
 const Navigation = ({ links }) => (
   <header>
@@ -166,7 +71,7 @@ const Navigation = ({ links }) => (
 
 const Hero = ({ data }) => (
   <section className="hero">
-    <p style={{ color: 'var(--muted)' }}>// Student ID: {data.id}</p>
+    <p style={{ color: 'var(--secondary)' }}>{'//'} Student ID: {data.id}</p>
     <h1>
       {data.title.split("ERIC ZHOU")[0]}
       <span className="highlight">ERIC ZHOU</span>
@@ -184,13 +89,13 @@ const SkillsSection = ({ skills }) => (
     <h2 className="section-title">01. SYSTEM_CAPABILITIES</h2>
     <div className="skills-container">
       <div>
-        <h3 className="sub-heading"> '&gt;' Languages</h3>
+        <h3 className="sub-heading">&gt; Languages</h3>
         <div className="skills-grid">
           {skills.languages.map(skill => <span key={skill} className="skill-tag">{skill}</span>)}
         </div>
       </div>
       <div>
-        <h3 className="sub-heading"> '&gt;' Frameworks & Tools</h3>
+        <h3 className="sub-heading">&gt; Frameworks & Tools</h3>
         <div className="skills-grid">
           {skills.frameworks.map(skill => <span key={skill} className="skill-tag">{skill}</span>)}
         </div>
@@ -226,10 +131,10 @@ const ExperienceTerminal = ({ exp }) => (
 );
 
 const ProjectCard = ({ project, index }) => (
-  // Add 'reversed' class if index is odd (1, 3, 5...)
+  // 'reversed' class is applied to odd indices (1, 3, 5...) to alternate layout
   <div className={`project-card ${index % 2 === 1 ? 'reversed' : ''}`}>
     
-    {/* Media Section */}
+    {/* Media Section (GIF) */}
     {project.demo && (
       <div className="project-media">
         <img src={project.demo} alt={`${project.title} Demo`} />
@@ -248,11 +153,11 @@ const ProjectCard = ({ project, index }) => (
     </div>
   </div>
 );
+
 const ProjectsSection = ({ projects }) => (
   <section id="projects">
     <h2 className="section-title">03. DEPLOYED_MODULES</h2>
     <div className="projects-grid">
-      {/* Pass the index to the component */}
       {projects.map((proj, index) => (
         <ProjectCard key={index} project={proj} index={index} />
       ))}
@@ -260,33 +165,29 @@ const ProjectsSection = ({ projects }) => (
   </section>
 );
 
-// src/App.js
-
-// src/App.js
-
 const Footer = ({ links }) => {
-  const [copySuccess, setCopySuccess] = React.useState('');
+  const [copySuccess, setCopySuccess] = useState('');
 
   const handleCopy = (e) => {
-    e.preventDefault(); // Prevent default mailto behavior
-    navigator.clipboard.writeText(links.email.replace('mailto:', ''));
+    e.preventDefault();
+    // Simple copy to clipboard logic
+    navigator.clipboard.writeText("zhouxuhongeric@gmail.com");
     setCopySuccess('Email Copied!');
     
-    // Reset message after 2 seconds
     setTimeout(() => setCopySuccess(''), 2000);
   };
 
   return (
     <footer className="contact-section">
       <h2 className="contact-title">INITIATE_COMMUNICATION()</h2>
-      <p className="location-text">Located in Kingston, Ontario, Canada</p>
+      <p className="location-text">Located in Toronto, Ontario, Canada</p>
       
       <button 
         onClick={handleCopy} 
         className="btn-tech" 
         style={{ cursor: 'pointer', minWidth: '150px' }}
       >
-        {copySuccess ? copySuccess : 'COPY EMAIL'}
+        {copySuccess ? copySuccess : 'SEND EMAIL'}
       </button>
 
       <div className="social-links">
@@ -308,7 +209,7 @@ const Footer = ({ links }) => {
 function App() {
   return (
     <div className="App">
-      <ParticleBackground />
+      {/* ParticleBackground has been removed to allow the CSS Gradient to show */}
       <div className="container">
         <Navigation links={RESUME_DATA.header} />
         <Hero data={RESUME_DATA.header} />
