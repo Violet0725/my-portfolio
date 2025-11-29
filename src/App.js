@@ -35,23 +35,25 @@ const RESUME_DATA = {
     {
       title: "Repo Interview Prepper AI",
       date: "Nov 2025",
-      // Using process.env.PUBLIC_URL ensures links work on GitHub Pages
       demo: repoPrepperGif, 
-      desc: "Technical interview simulator that scans GitHub repos to generate context-aware questions. Architected secure BFF pattern and implemented model cascading for 40% faster generation.",
+      link: "https://repo-interview-prepper.vercel.app",
+      desc: "Technical interview simulator that scans GitHub repos...",
       tags: ["React", "Vercel BFF", "OpenAI API", "GitHub API"]
     },
     {
       title: "Travel Debate AI",
       date: "Nov 2025",
       demo: travelGif, 
-      desc: "Multi-agent orchestration engine where GPT-4 personas (Budget, Luxury, Mediator) debate to generate itineraries. Features real-time visualization and Redis persistence.",
+      link: "https://travel-debate-ai.vercel.app/", 
+      desc: "Multi-agent orchestration engine where GPT-4 personas debate...",
       tags: ["Next.js 15", "OpenAI API", "Redis", "Multi-Agent"]
     },
     {
       title: "Real-Time Chat App",
       date: "Oct 2025",
       demo: chatGif,
-      desc: "Low-latency distributed messaging system handling concurrent bidirectional streams. Optimized React state for sub-100ms delivery.",
+      link: "https://eric-chat-app.vercel.app/", 
+      desc: "Low-latency distributed messaging system...",
       tags: ["Socket.io", "Node.js", "MongoDB", "React"]
     }
   ]
@@ -131,20 +133,26 @@ const ExperienceTerminal = ({ exp }) => (
 );
 
 const ProjectCard = ({ project, index }) => (
-  // 'reversed' class is applied to odd indices (1, 3, 5...) to alternate layout
   <div className={`project-card ${index % 2 === 1 ? 'reversed' : ''}`}>
     
-    {/* Media Section (GIF) */}
+    {/* Media Section - NOW CLICKABLE */}
     {project.demo && (
-      <div className="project-media">
+      <a href={project.link} target="_blank" rel="noreferrer" className="project-media">
         <img src={project.demo} alt={`${project.title} Demo`} />
+        {/* Optional: Add an overlay icon to indicate it's clickable */}
         <div className="media-overlay"></div>
-      </div>
+      </a>
     )}
     
     {/* Content Section */}
     <div className="project-content">
-      <h3>{project.title}</h3>
+      {/* Title - NOW CLICKABLE */}
+      <h3>
+        <a href={project.link} target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+          {project.title} ↗
+        </a>
+      </h3>
+      
       <span className="project-date">Status: Completed [{project.date}]</span>
       <p className="project-desc">{project.desc}</p>
       <div className="tags-wrapper">

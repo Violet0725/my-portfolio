@@ -360,6 +360,11 @@ header {
   text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
+.project-card h3 a:hover {
+  color: var(--primary);
+  text-shadow: 0 0 10px var(--primary);
+}
+
 .project-date {
   display: inline-block;
   font-size: 0.8rem;
@@ -477,6 +482,7 @@ header {
   }
   
   .project-media {
+    cursor: pointer;
     height: 250px;
     border-right: none;
     border-left: none;
