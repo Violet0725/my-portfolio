@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Eric Zhou - Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive portfolio website showcasing my projects and skills as a Full Stack Developer & AI Integration Specialist.
 
-## Available Scripts
+**Live Site:** [https://violet0725.github.io/my-portfolio](https://violet0725.github.io/my-portfolio)
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Clean, modern light theme design
+- Smooth scroll animations with Framer Motion
+- Animated skill bars
+- Responsive layout for all devices
+- Project showcase with live demos
+- One-click email copy functionality
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Framework:** React 19
+- **Animations:** Framer Motion
+- **Styling:** CSS3 with CSS Variables
+- **Typography:** Outfit & JetBrains Mono (Google Fonts)
+- **Deployment:** GitHub Pages
 
-### `npm test`
+## Featured Projects
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Repo Interview Prepper AI
+An intelligent technical interview simulator that analyzes GitHub repositories to generate contextual, codebase-specific interview questions.
 
-### `npm run build`
+### Travel Debate AI
+A multi-agent orchestration engine where GPT-4 powered AI personas debate travel destinations in real-time.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Real-Time Chat App
+A low-latency distributed messaging system with WebSocket connections and real-time presence indicators.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
+- Node.js (v16 or higher)
+- npm
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# Clone the repository
+git clone https://github.com/Violet0725/my-portfolio.git
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Navigate to project directory
+cd my-portfolio
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Install dependencies
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Start development server
+npm start
+```
 
-## Learn More
+The app will open at [http://localhost:3000](http://localhost:3000)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Build for Production
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run build
+```
 
-### Code Splitting
+### Deploy to GitHub Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm run deploy
+```
 
-### Analyzing the Bundle Size
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **GitHub:** [github.com/Violet0725](https://github.com/Violet0725)
+- **LinkedIn:** [linkedin.com/in/ericzhou040725](https://www.linkedin.com/in/ericzhou040725)
+- **Email:** zhouxuhongeric@gmail.com
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+© 2025 Eric Zhou. All rights reserved.
