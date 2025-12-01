@@ -133,6 +133,19 @@ body {
   color: var(--text-primary);
 }
 
+.nav-link.resume-link {
+  padding: 8px 16px;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+  color: var(--primary);
+  transition: all 0.2s ease;
+}
+
+.nav-link.resume-link:hover {
+  background: var(--primary);
+  color: white;
+}
+
 .nav-number {
   font-family: var(--font-mono);
   font-size: 0.75rem;
@@ -343,17 +356,38 @@ body {
 }
 
 /* --- SKILLS SECTION --- */
-.skills-container {
+.skills-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 60px;
+  gap: 24px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.skills-grid.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skills-category-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skills-category-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .skills-category {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-secondary);
-  margin-bottom: 24px;
+  color: var(--text-primary);
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -363,40 +397,25 @@ body {
   font-size: 1.25rem;
 }
 
-.skill-item {
-  margin-bottom: 20px;
-}
-
-.skill-info {
+.skills-tags {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.skill-name {
-  font-size: 0.9375rem;
+.skill-tag {
+  background: var(--primary-dim);
+  color: var(--primary);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-primary);
+  transition: all 0.2s ease;
 }
 
-.skill-level {
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-}
-
-.skill-bar-bg {
-  height: 6px;
-  background: var(--bg-tertiary);
-  border-radius: 100px;
-  overflow: hidden;
-}
-
-.skill-bar-fill {
-  height: 100%;
-  background: var(--gradient-primary);
-  border-radius: 100px;
-  transition: width 0.8s ease-out;
+.skill-tag:hover {
+  background: var(--primary);
+  color: white;
 }
 
 /* --- EXPERIENCE SECTION --- */
@@ -702,9 +721,9 @@ body {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
-  .skills-container {
+  .skills-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 16px;
   }
   
   .project-card,

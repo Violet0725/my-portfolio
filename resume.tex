@@ -1,0 +1,176 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADER----------
+\begin{center}
+    \textbf{\Huge \scshape Eric Zhou} \\ \vspace{3pt}
+    \textbf{\large Software Engineer $\mid$ AI Systems \& Infrastructure} \\ \vspace{3pt}
+    \small 
+    \href{mailto:zhouxuhongeric@gmail.com}{\underline{zhouxuhongeric@gmail.com}} $|$ 
+    (+1) 647-675-3002 $|$ 
+    \href{https://www.linkedin.com/in/ericzhou040725/}{\underline{LinkedIn}} $|$
+    \href{https://github.com/Violet0725}{\underline{GitHub}} $|$
+    \href{https://violet0725.github.io/my-portfolio/}{\underline{Portfolio}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Queen's University}{Kingston, ON}
+      {Bachelor of Computing (Honours)}{Expected 2026}
+      \resumeItemListStart
+        \resumeItem{\textbf{GPA:} 4.1/4.3 (Dean's List)}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: TypeScript, JavaScript, Python, Java, SQL, Bash} \\
+     \textbf{Frameworks}{: Next.js 15, React, Node.js, Express, FastAPI, Socket.io, Tailwind CSS} \\
+     \textbf{Databases \& Tools}{: PostgreSQL, MongoDB, Qdrant, Redis, Docker, RabbitMQ, Git} \\
+     \textbf{AI \& ML}{: Sentence Transformers, Vector Embeddings, RAG Pipelines, LLM Integration (OpenAI), Prompt Engineering}
+    }}
+ \end{itemize}
+
+
+
+
+
+%-----------PROJECTS-----------
+\section{Project Experience}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{Semantic Code Search Engine} $|$ \href{https://github.com/Violet0725/DistributedCodeSearchEngine}{\underline{GitHub}} $|$ \emph{Python, FastAPI, Qdrant, Sentence Transformers}}{Dec 2025}
+      \resumeItemListStart
+        \resumeItem{Built an AI-powered code search engine using \textbf{Sentence Transformers} to generate 384-dim embeddings, enabling natural language queries like ``async HTTP client'' to find semantically relevant functions across \textbf{5 programming languages}.}
+        \resumeItem{Implemented \textbf{hybrid search} combining vector similarity (Qdrant) with BM25 keyword matching using Reciprocal Rank Fusion, achieving superior relevance over keyword-only search.}
+        \resumeItem{Developed AST-based code parsing with \textbf{Tree-sitter} to extract functions, classes, and methods with full signatures and docstrings from Python, JavaScript, TypeScript, Go, and Rust codebases.}
+      \resumeItemListEnd
+  
+    \resumeProjectHeading
+      {\textbf{Travel Debate AI} $|$ \href{https://travel-debate-ai.vercel.app/}{\underline{Live Demo}} $|$ \emph{Next.js 15, OpenAI, Redis}}{Nov 2025}
+      \resumeItemListStart
+        \resumeItem{Orchestrated \textbf{3 concurrent AI agents} to autonomously negotiate and generate balanced travel itineraries with real-time visualization of agent reasoning.}
+        \resumeItem{Achieved \textbf{sub-50ms retrieval} using Redis to persist trips with UUID-based sharing; optimized streaming to reduce TTFB to \textbf{under 400ms}.}
+      \resumeItemListEnd
+      
+    \resumeProjectHeading
+      {\textbf{Repo Interview Prepper} $|$ \href{https://repo-interview-prepper.vercel.app/}{\underline{Live Demo}} $|$ \emph{React, Vercel, OpenAI API}}{Nov 2025}
+      \resumeItemListStart
+        \resumeItem{Engineered recursive GitHub file parsing via \textbf{Octokit SDK}, injecting code context into LLM prompts; reduced costs \textbf{40\%} with cascaded model routing.}
+        \resumeItem{Architected serverless BFF layer with Vercel Edge Functions to secure API keys; achieved \textbf{95+} Lighthouse performance with optimized rendering.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Real-Time Chat Application} $|$ \href{https://eric-chat-app.vercel.app/}{\underline{Live Demo}} $|$ \emph{React, Node.js, Socket.io}}{Oct 2025}
+      \resumeItemListStart
+        \resumeItem{Built WebSocket architecture with \textbf{Optimistic UI pattern}, ensuring \textbf{100ms message delivery} and \textbf{100\% data consistency} with MongoDB.}
+      \resumeItemListEnd
+      
+  \resumeSubHeadingListEnd
+
+  %-----------EXPERIENCE-----------
+\section{Work Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Teaching Assistant - CISC 203 (Discrete Mathematics)}{Sep 2025 -- Present}
+      {Queen's University}{Kingston, ON}
+      \resumeItemListStart
+        \resumeItem{Mentored 200+ students in Graph Theory and Combinatorics, translating abstract proofs into digestible logical steps to improve technical communication skills.}
+        \resumeItem{Analyzed recurring failure patterns in submissions to create a ``Common Errors'' guide, successfully reducing repetitive clarification inquiries by \textbf{15\%}.}
+        \resumeItem{Conducted root-cause analysis on student logic to identify edge cases in mathematical proofs, ensuring algorithmic correctness across \textbf{50+ weekly assessments}.}
+      \resumeItemListEnd
+      
+  \resumeSubHeadingListEnd
+\end{document}

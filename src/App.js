@@ -4,6 +4,7 @@ import './App.css';
 import repoPrepperGif from './repo-prepper.gif';
 import travelGif from './travel.gif';
 import chatGif from './chat.gif';
+import searchGif from './search.gif';
 
 // --- DATA SECTION ---
 const RESUME_DATA = {
@@ -11,7 +12,7 @@ const RESUME_DATA = {
     name: "Eric Zhou",
     id: "QU-2026-CS",
     title: "ERIC ZHOU",
-    subtitle: "Full Stack Developer & AI Integration Specialist",
+    subtitle: "Software Engineer | AI Systems & Infrastructure",
     tagline: "Building the future, one commit at a time.",
     links: {
       github: "https://github.com/Violet0725",
@@ -20,24 +21,10 @@ const RESUME_DATA = {
     }
   },
   skills: {
-    languages: [
-      { name: "JavaScript", level: 95 },
-      { name: "TypeScript", level: 90 },
-      { name: "Python", level: 88 },
-      { name: "Java", level: 82 },
-      { name: "SQL", level: 85 },
-      { name: "Bash", level: 75 },
-    ],
-    frameworks: [
-      { name: "Next.js 15", level: 92 },
-      { name: "React", level: 95 },
-      { name: "Node.js", level: 90 },
-      { name: "FastAPI", level: 85 },
-      { name: "Socket.io", level: 88 },
-      { name: "Tailwind CSS", level: 90 },
-      { name: "Redis", level: 80 },
-      { name: "Docker", level: 78 },
-    ]
+    languages: ["TypeScript", "JavaScript", "Python", "Java", "SQL", "Bash"],
+    frameworks: ["Next.js 15", "React", "Node.js", "Express", "FastAPI", "Socket.io", "Tailwind CSS"],
+    tools: ["PostgreSQL", "MongoDB", "Qdrant", "Redis", "Docker", "RabbitMQ", "Git"],
+    ai: ["Sentence Transformers", "Vector Embeddings", "RAG Pipelines", "LLM Integration (OpenAI)", "Prompt Engineering"]
   },
   experience: {
     role: "Teaching Assistant",
@@ -52,6 +39,15 @@ const RESUME_DATA = {
     ]
   },
   projects: [
+    {
+      title: "Semantic Code Search Engine",
+      date: "Dec 2025",
+      demo: searchGif,
+      link: "https://github.com/Violet0725/DistributedCodeSearchEngine",
+      desc: "AI-powered code search using Sentence Transformers for semantic embeddings. Features hybrid search combining vector similarity (Qdrant) with BM25 keyword matching, and AST-based parsing with Tree-sitter across 5 programming languages.",
+      tags: ["Python", "FastAPI", "Qdrant", "Sentence Transformers"],
+      color: "#F59E0B"
+    },
     {
       title: "Repo Interview Prepper AI",
       date: "Nov 2025",
@@ -107,7 +103,7 @@ const Navigation = ({ links }) => {
         </div>
         
         <nav className="nav-links">
-          {['Skills', 'Experience', 'Projects', 'Contact'].map((item, i) => (
+          {['Projects', 'Skills', 'Experience', 'Contact'].map((item, i) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -117,6 +113,14 @@ const Navigation = ({ links }) => {
               {item}
             </a>
           ))}
+          <a
+            href={process.env.PUBLIC_URL + "/resume.pdf"}
+            target="_blank"
+            rel="noreferrer"
+            className="nav-link resume-link"
+          >
+            Resume
+          </a>
         </nav>
 
         <div className="nav-socials">
@@ -170,6 +174,16 @@ const Hero = ({ data }) => {
           <a href={data.links.email} className="btn-secondary">
             <span>Get In Touch</span>
           </a>
+          <a href={process.env.PUBLIC_URL + "/resume.pdf"} target="_blank" rel="noreferrer" className="btn-secondary">
+            <span>View Resume</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </a>
         </div>
       </div>
 
@@ -192,54 +206,42 @@ const SectionHeader = ({ number, title, subtitle }) => (
 );
 
 // --- SKILLS SECTION ---
-const SkillBar = ({ skill, index, isInView }) => (
-  <div className="skill-item">
-    <div className="skill-info">
-      <span className="skill-name">{skill.name}</span>
-      <span className="skill-level">{skill.level}%</span>
-    </div>
-    <div className="skill-bar-bg">
-      <div
-        className="skill-bar-fill"
-        style={{ 
-          width: isInView ? `${skill.level}%` : '0%',
-          transitionDelay: `${index * 0.05}s`
-        }}
-      />
-    </div>
-  </div>
+const SkillTag = ({ skill }) => (
+  <span className="skill-tag">{skill}</span>
 );
 
 const SkillsSection = ({ skills }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
+  const categories = [
+    { key: 'languages', title: 'Languages', icon: '⚡' },
+    { key: 'frameworks', title: 'Frameworks', icon: '🛠' },
+    { key: 'tools', title: 'Databases & Tools', icon: '🔧' },
+    { key: 'ai', title: 'AI & ML', icon: '🤖' }
+  ];
+
   return (
     <section id="skills" className="skills-section" ref={ref}>
       <SectionHeader 
-        number="01" 
+        number="02" 
         title="Technical Arsenal" 
-        subtitle="Technologies I work with daily"
+        subtitle="Technologies I work with"
       />
-      <div className="skills-container">
-        <div className="skills-column">
-          <h3 className="skills-category">
-            <span className="category-icon">⚡</span>
-            Languages
-          </h3>
-          {skills.languages.map((skill, i) => (
-            <SkillBar key={skill.name} skill={skill} index={i} isInView={isInView} />
-          ))}
-        </div>
-        <div className="skills-column">
-          <h3 className="skills-category">
-            <span className="category-icon">🛠</span>
-            Frameworks & Tools
-          </h3>
-          {skills.frameworks.map((skill, i) => (
-            <SkillBar key={skill.name} skill={skill} index={i} isInView={isInView} />
-          ))}
-        </div>
+      <div className={`skills-grid ${isInView ? 'visible' : ''}`}>
+        {categories.map((cat) => (
+          <div key={cat.key} className="skills-category-card">
+            <h3 className="skills-category">
+              <span className="category-icon">{cat.icon}</span>
+              {cat.title}
+            </h3>
+            <div className="skills-tags">
+              {skills[cat.key].map((skill) => (
+                <SkillTag key={skill} skill={skill} />
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
@@ -250,7 +252,7 @@ const ExperienceSection = ({ exp }) => {
   return (
     <section id="experience" className="experience-section">
       <SectionHeader 
-        number="02" 
+        number="03" 
         title="Experience" 
         subtitle="Where I've been making an impact"
       />
@@ -334,7 +336,7 @@ const ProjectCard = ({ project, index }) => {
 const ProjectsSection = ({ projects }) => (
   <section id="projects" className="projects-section">
     <SectionHeader 
-      number="03" 
+      number="01" 
       title="Featured Projects" 
       subtitle="A selection of my recent work"
     />
@@ -422,9 +424,9 @@ function App() {
       <div className="container">
         <Navigation links={RESUME_DATA.header} />
         <Hero data={RESUME_DATA.header} />
+        <ProjectsSection projects={RESUME_DATA.projects} />
         <SkillsSection skills={RESUME_DATA.skills} />
         <ExperienceSection exp={RESUME_DATA.experience} />
-        <ProjectsSection projects={RESUME_DATA.projects} />
         <Footer links={RESUME_DATA.header.links} />
       </div>
     </div>
