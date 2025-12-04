@@ -1,6 +1,6 @@
 # Eric Zhou - Portfolio
 
-A modern, responsive portfolio website showcasing my projects and skills as a Full Stack Developer & AI Integration Specialist.
+A modern, responsive portfolio website showcasing my projects and skills as a Software Engineer specializing in Web & AI Applications.
 
 **Live Site:** [https://violet0725.github.io/my-portfolio](https://violet0725.github.io/my-portfolio)
 
@@ -22,6 +22,9 @@ A modern, responsive portfolio website showcasing my projects and skills as a Fu
 - **Deployment:** GitHub Pages
 
 ## Featured Projects
+
+### Semantic Code Search Engine
+An AI-powered code search engine using Sentence Transformers for semantic embeddings. Features hybrid search combining vector similarity with BM25 keyword matching, and AST-based parsing across 5 programming languages.
 
 ### Repo Interview Prepper AI
 An intelligent technical interview simulator that analyzes GitHub repositories to generate contextual, codebase-specific interview questions.

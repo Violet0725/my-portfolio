@@ -12,7 +12,7 @@ const RESUME_DATA = {
     name: "Eric Zhou",
     id: "QU-2026-CS",
     title: "ERIC ZHOU",
-    subtitle: "Software Engineer | AI Systems & Infrastructure",
+    subtitle: "Software Engineer | Web & AI Applications",
     tagline: "Building the future, one commit at a time.",
     links: {
       github: "https://github.com/Violet0725",
@@ -23,7 +23,7 @@ const RESUME_DATA = {
   skills: {
     languages: ["TypeScript", "JavaScript", "Python", "Java", "SQL", "Bash"],
     frameworks: ["Next.js 15", "React", "Node.js", "Express", "FastAPI", "Socket.io", "Tailwind CSS"],
-    tools: ["PostgreSQL", "MongoDB", "Qdrant", "Redis", "Docker", "RabbitMQ", "Git"],
+    tools: ["PostgreSQL", "MongoDB", "Qdrant", "Redis", "Docker", "RabbitMQ", "Git", "Vitest"],
     ai: ["Sentence Transformers", "Vector Embeddings", "RAG Pipelines", "LLM Integration (OpenAI)", "Prompt Engineering"]
   },
   experience: {
@@ -32,10 +32,9 @@ const RESUME_DATA = {
     institution: "Queen's University",
     period: "Sep 2025 - Present",
     highlights: [
-      "Mentored 200+ students in discrete mathematics concepts",
-      "Developed systematic debugging approaches for proofs",
-      "Created documentation reducing clarification requests by 15%",
-      "Applied technical writing skills to complex mathematical concepts"
+      "Mentored 200+ students in Graph Theory and Combinatorics, translating abstract proofs into digestible logical steps",
+      "Created a 'Common Errors' guide by analyzing recurring failure patterns, reducing clarification inquiries by 15%",
+      "Conducted root-cause analysis on student logic to identify edge cases in mathematical proofs across 50+ weekly assessments"
     ]
   },
   projects: [
@@ -54,7 +53,7 @@ const RESUME_DATA = {
       demo: repoPrepperGif,
       link: "https://repo-interview-prepper.vercel.app",
       desc: "An intelligent technical interview simulator that analyzes your GitHub repositories to generate contextual, codebase-specific interview questions. Perfect for preparing for technical interviews with personalized practice.",
-      tags: ["React", "Vercel BFF", "OpenAI API", "GitHub API"],
+      tags: ["React", "Vite", "Vitest", "OpenAI API"],
       color: "#FF6B6B"
     },
     {
@@ -68,7 +67,7 @@ const RESUME_DATA = {
     },
     {
       title: "Real-Time Chat App",
-      date: "Oct 2025",
+      date: "Dec 2025",
       demo: chatGif,
       link: "https://eric-chat-app.vercel.app/",
       desc: "A low-latency distributed messaging system with WebSocket connections, real-time presence indicators, and instant message delivery. Built for scale with room-based architecture.",

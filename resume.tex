@@ -88,7 +88,7 @@
 %----------HEADER----------
 \begin{center}
     \textbf{\Huge \scshape Eric Zhou} \\ \vspace{3pt}
-    \textbf{\large Software Engineer $\mid$ AI Systems \& Infrastructure} \\ \vspace{3pt}
+    \textbf{\large Software Engineer $\mid$ Web \& AI Applications} \\ \vspace{3pt}
     \small 
     \href{mailto:zhouxuhongeric@gmail.com}{\underline{zhouxuhongeric@gmail.com}} $|$ 
     (+1) 647-675-3002 $|$ 
@@ -116,7 +116,7 @@
     \small{\item{
      \textbf{Languages}{: TypeScript, JavaScript, Python, Java, SQL, Bash} \\
      \textbf{Frameworks}{: Next.js 15, React, Node.js, Express, FastAPI, Socket.io, Tailwind CSS} \\
-     \textbf{Databases \& Tools}{: PostgreSQL, MongoDB, Qdrant, Redis, Docker, RabbitMQ, Git} \\
+     \textbf{Databases \& Tools}{: PostgreSQL, MongoDB, Qdrant, Redis, Docker, RabbitMQ, Git, Vitest} \\
      \textbf{AI \& ML}{: Sentence Transformers, Vector Embeddings, RAG Pipelines, LLM Integration (OpenAI), Prompt Engineering}
     }}
  \end{itemize}
@@ -138,23 +138,27 @@
       \resumeItemListEnd
   
     \resumeProjectHeading
-      {\textbf{Travel Debate AI} $|$ \href{https://travel-debate-ai.vercel.app/}{\underline{Live Demo}} $|$ \emph{Next.js 15, OpenAI, Redis}}{Nov 2025}
+      {\textbf{Travel Debate AI} $|$ \href{https://travel-debate-ai.vercel.app/}{\underline{Live Demo}} $|$ \href{https://github.com/Violet0725/Travel-Debate-AI}{\underline{GitHub}} $|$ \emph{Next.js 15, OpenAI, Redis}}{Nov 2025}
       \resumeItemListStart
-        \resumeItem{Orchestrated \textbf{3 concurrent AI agents} to autonomously negotiate and generate balanced travel itineraries with real-time visualization of agent reasoning.}
-        \resumeItem{Achieved \textbf{sub-50ms retrieval} using Redis to persist trips with UUID-based sharing; optimized streaming to reduce TTFB to \textbf{under 400ms}.}
+        \resumeItem{Orchestrated \textbf{3 AI agents} with \textbf{parallel API execution} using Promise.all(), reducing debate response time by \textbf{50\%} while streaming token-by-token via \textbf{Server-Sent Events (SSE)}.}
+        \resumeItem{Architected modular backend with centralized validation layer, shared OpenAI/Redis clients, and \textbf{React Error Boundaries} for graceful failure recovery.}
+        \resumeItem{Implemented Redis persistence with proper connection pooling and \textbf{30-day TTL expiration}; achieved \textbf{sub-50ms} trip retrieval for shareable itinerary links.}
       \resumeItemListEnd
       
     \resumeProjectHeading
-      {\textbf{Repo Interview Prepper} $|$ \href{https://repo-interview-prepper.vercel.app/}{\underline{Live Demo}} $|$ \emph{React, Vercel, OpenAI API}}{Nov 2025}
+      {\textbf{Repo Interview Prepper} $|$ \href{https://repo-interview-prepper.vercel.app/}{\underline{Live Demo}} $|$ \href{https://github.com/Violet0725/repo-interview-prepper}{\underline{GitHub}} $|$ \emph{React, Vite, Vitest, OpenAI API}}{Nov 2025}
       \resumeItemListStart
-        \resumeItem{Engineered recursive GitHub file parsing via \textbf{Octokit SDK}, injecting code context into LLM prompts; reduced costs \textbf{40\%} with cascaded model routing.}
-        \resumeItem{Architected serverless BFF layer with Vercel Edge Functions to secure API keys; achieved \textbf{95+} Lighthouse performance with optimized rendering.}
+        \resumeItem{Implemented \textbf{real-time AI streaming} via Server-Sent Events (SSE) for mock interview mode, reducing perceived latency by \textbf{70\%} with token-by-token response rendering.}
+        \resumeItem{Built \textbf{53 unit tests} with Vitest and React Testing Library; configured \textbf{GitHub Actions CI/CD} pipeline achieving \textbf{100\% pass rate} on lint, test, and build stages.}
+        \resumeItem{Architected modular codebase with \textbf{5 custom hooks}, service layer abstraction, and serverless BFF pattern; added rate limiting (\textbf{20 req/min}) to protect API endpoints.}
       \resumeItemListEnd
 
     \resumeProjectHeading
-      {\textbf{Real-Time Chat Application} $|$ \href{https://eric-chat-app.vercel.app/}{\underline{Live Demo}} $|$ \emph{React, Node.js, Socket.io}}{Oct 2025}
+      {\textbf{Real-Time Chat Application} $|$ \href{https://eric-chat-app.vercel.app/}{\underline{Live Demo}} $|$ \href{https://github.com/Violet0725/ChatApp}{\underline{GitHub}} $|$ \emph{React, Node.js, Socket.io, MongoDB}}{Dec 2025}
       \resumeItemListStart
-        \resumeItem{Built WebSocket architecture with \textbf{Optimistic UI pattern}, ensuring \textbf{100ms message delivery} and \textbf{100\% data consistency} with MongoDB.}
+        \resumeItem{Engineered real-time messaging with \textbf{Socket.io WebSockets}, supporting \textbf{multi-channel chat}, \textbf{DMs}, typing indicators, and online presence for concurrent users within \textbf{100ms latency}.}
+        \resumeItem{Implemented \textbf{JWT authentication} with bcrypt password hashing, \textbf{message reactions} (8 emojis), file uploads via \textbf{Multer}, and full-text \textbf{message search} with MongoDB indexing.}
+        \resumeItem{Deployed full-stack app with \textbf{Vercel} (frontend) and \textbf{Render} (backend); configured \textbf{CORS}, environment variables, and \textbf{MongoDB Atlas} for production-ready infrastructure.}
       \resumeItemListEnd
       
   \resumeSubHeadingListEnd
